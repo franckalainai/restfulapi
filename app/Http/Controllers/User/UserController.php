@@ -58,7 +58,7 @@ class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user) // <- this is called model binding
     {
         return $this->showOne($user);
         return $user;
@@ -122,7 +122,7 @@ class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $user) // <- this is called model binding
     {
         $user->delete();
         return $this->showOne($user);
