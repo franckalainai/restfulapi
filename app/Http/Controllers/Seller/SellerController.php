@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Seller;
 
 use App\Seller;
-use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 
 class SellerController extends ApiController
@@ -20,9 +19,9 @@ class SellerController extends ApiController
     }
 
 
-    public function show($id)
-    {
-        $seller = Seller::has('products')->findOrFail($id);
+    public function show(Seller $seller) // <- this is called model binding
+        {
+        //$seller = Seller::has('products')->findOrFail($id);
         return $this->showOne($seller);
     }
 
