@@ -14,7 +14,7 @@ class BuyerTransformer extends TransformerAbstract
     protected $defaultIncludes = [
         //
     ];
-    
+
     /**
      * List of resources possible to include
      *
@@ -23,7 +23,7 @@ class BuyerTransformer extends TransformerAbstract
     protected $availableIncludes = [
         //
     ];
-    
+
     /**
      * A Fractal transformer.
      *
@@ -38,7 +38,34 @@ class BuyerTransformer extends TransformerAbstract
             'isVerified' => (int)$buyer->verified,
             'creationDate' => (string) $buyer->created_at,
             'lastChange' => (string) $buyer->updated_at,
-            'deletedDate' => isset($buyer->deleted_at) ? (string) $buyer->deleted_at : null
+            'deletedDate' => isset($buyer->deleted_at) ? (string) $buyer->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('buyers.show', $buyer->id),
+                ],
+                [
+                    'rel' => 'buyer.products',
+                    'href' => route('buyers.products.index', $buyer->id),
+                ],
+                [
+                    'rel' => 'buyer.categories',
+                    'href' => route('buyers.categories.index', $buyer->id),
+                ],
+                [
+                    'rel' => 'buyer.transactions',
+                    'href' => route('buyers.transactions.index', $buyer->id),
+                ],
+                [
+                    'rel' => 'buyer.sellers',
+                    'href' => route('buyers.sellers.index', $buyer->id),
+                ],
+                [
+                    'rel' => 'buyer.users',
+                    'href' => route('users.show', $buyer->id),
+                ]
+            ]
         ];
     }
 

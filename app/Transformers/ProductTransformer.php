@@ -16,7 +16,7 @@ class ProductTransformer extends TransformerAbstract
     protected $defaultIncludes = [
         //
     ];
-    
+
     /**
      * List of resources possible to include
      *
@@ -25,7 +25,7 @@ class ProductTransformer extends TransformerAbstract
     protected $availableIncludes = [
         //
     ];
-    
+
     /**
      * A Fractal transformer.
      *
@@ -43,7 +43,30 @@ class ProductTransformer extends TransformerAbstract
             'seller' => (int)$product->seller_id,
             'creationDate' => (string) $product->created_at,
             'lastChange' => (string) $product->updated_at,
-            'deletedDate' => isset($product->deleted_at) ? (string) $product->deleted_at : null
+            'deletedDate' => isset($product->deleted_at) ? (string) $product->deleted_at : null,
+
+            'links' => [
+                [
+                    'rel' => 'self',
+                    'href' => route('products.show', $product->id),
+                ],
+                [
+                    'rel' => 'product.buyers',
+                    'href' => route('products.buyers.index', $product->id),
+                ],
+                [
+                    'rel' => 'product.categories',
+                    'href' => route('products.categories.index', $product->id),
+                ],
+                [
+                    'rel' => 'product.transactions',
+                    'href' => route('products.transactions.index', $product->id),
+                ],
+                [
+                    'rel' => 'seller',
+                    'href' => route('sellers.show', $product->seller_id),
+                ]
+            ]
         ];
     }
 
