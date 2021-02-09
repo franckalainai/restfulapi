@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
@@ -95,6 +96,10 @@ class Handler extends ExceptionHandler
             }
         }
 
+        if($exception instanceof TokenMismatchException){
+            return redirect()->back()->withInput($request->input());
+        }
+
         if(config('app.debug')){
             return parent::render($request, $exception);
         }
@@ -105,6 +110,11 @@ class Handler extends ExceptionHandler
 
     protected function unauthenticated($request, AuthenticationException $exception)
     {
+        // Redirection vers la page de login apres tentative
+        //d'aller sur une page pour les utilisateurs authentifié
+        if($this->isFrontEnd($request)){
+            return redirect()->guest('login');
+        }
         return $this->errorResponse('Unauthenticated', 401);
     }
 
@@ -119,6 +129,19 @@ class Handler extends ExceptionHandler
     {
         $errors = $e->validator->errors()->getMessages();
 
+        // Message pour les champs de connexion
+        if($this->isFrontEnd($request)){
+            return $request->ajax() ? response()->json($error, 422) : redirect()
+            ->back()
+            ->withInput($request->input())
+            ->withErrors($errors);
+        }
+
         return $this->errorResponse($errors, 422);
+    }
+
+    // Fonction pour envoyer les message d'erreur en format web via l'interface de login
+    private function isFrontEnd($request){
+        return $request->acceptsHtml() && collect($request->route()->middleware())->contains('web');
     }
 }
