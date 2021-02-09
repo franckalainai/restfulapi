@@ -1,2 +1,4 @@
 php artisan passport:client 
 php artisan passport:client --personal 
+http://restfulapi.test/oauth/authorize?client_id=6&redirect_url=http://localhost&response_type=code
+http://restfulapi.test/oauth/authorize?client_id=6&redirect_url=http://localhost&response_type=token
