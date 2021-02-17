@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    This is the main page great!
+                    This is the main page. Great!
                 </div>
             </div>
         </div>
