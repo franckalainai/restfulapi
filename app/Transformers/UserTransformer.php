@@ -38,6 +38,8 @@ class UserTransformer extends TransformerAbstract
             'email' => (string)$user->email,
             'isVerified' => (int)$user->verified,
             'isAdmin' => ($user->admin === 'true'),
+            'password' => (string)$user->password,
+            'password_confirmation' => (string)$user->password_confirmation,
             'creationDate' => (string) $user->created_at,
             'lastChange' => (string) $user->updated_at,
             'deletedDate' => isset($user->deleted_at) ? (string) $user->deleted_at : null,
@@ -58,6 +60,8 @@ class UserTransformer extends TransformerAbstract
             'email' => 'email',
             'isVerified' => 'verified',
             'isAdmin' => 'admin',
+            'password' => 'password',
+            'password_confirmation' => 'password_confirmation',
             'creationDate' => 'created_at',
             'lastChange' => 'updated_at',
             'deletedDate' => 'deleted_at'
@@ -73,6 +77,8 @@ class UserTransformer extends TransformerAbstract
             'email'=>'email',
             'verified' =>'isVerified',
             'admin' => 'isAdmin',
+            'password' => 'password',
+            'password_confirmation' => 'password_confirmation',
             'created_at' => 'creationDate',
             'updated_at' => 'lastChange',
             'deleted_at' => 'deletedDate'
