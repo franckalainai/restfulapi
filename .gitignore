@@ -2,7 +2,11 @@
 /public/hot
 #/public/storage
 #/storage/*.key
+<<<<<<< HEAD
 #/vendor
+=======
+/vendor
+>>>>>>> 02d966ebc775e734e0ab326bbe62ad848ba7db55
 #.env
 .env.backup
 .phpunit.result.cache
