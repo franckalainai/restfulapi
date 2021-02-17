@@ -131,7 +131,7 @@ class Handler extends ExceptionHandler
 
         // Message pour les champs de connexion
         if($this->isFrontEnd($request)){
-            return $request->ajax() ? response()->json($error, 422) : redirect()
+            return $request->ajax() ? response()->json(422) : redirect()
             ->back()
             ->withInput($request->input())
             ->withErrors($errors);

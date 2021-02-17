@@ -34,10 +34,8 @@ class AuthServiceProvider extends ServiceProvider
         Passport::tokensCan([
             'purchase-product' => 'Create a new transaction for a specific product',
             'manage-products' => 'Creat, Read, Update, Delete products (CRUD)',
-            'manage-account' => 'Read your account data, id,name, email, if verified, if admin,
-            (cannot modify password), modify your account data (email and password), cannot delete your account',
-            'read-general' => 'Read general information like purchasing categories, purchased products, selling categories,
-            your transactions (purchases and sales)'
+            'manage-account' => 'Read your account data, id,name, email, if verified, if admin,(cannot modify password), modify your account data (email and password), cannot delete your account',
+            'read-general' => 'Read general information like purchasing categories, purchased products, selling categories,your transactions (purchases and sales)'
         ]);
     }
 }
