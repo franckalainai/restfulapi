@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'dd540bacd0aa998eb625603472d5284702d575d3',
+    'reference' => '713acb51590b5c3072dd1dfd2a9f22b32d618be8',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
+    'asm89/stack-cors' => 
+    array (
+      'pretty_version' => 'v2.0.2',
+      'version' => '2.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8d8f88b3b3830916be94292c1fbce84433efb1aa',
+    ),
     'cordoval/hamcrest-php' => 
     array (
       'replaced' => 
@@ -150,6 +159,15 @@
       array (
       ),
       'reference' => 'f42c9110abe98dd6cfe9053c49bc86acc70b2d23',
+    ),
+    'fruitcake/laravel-cors' => 
+    array (
+      'pretty_version' => 'v2.0.3',
+      'version' => '2.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '01de0fe5f71c70d1930ee9a80385f9cc28e0f63a',
     ),
     'guzzlehttp/guzzle' => 
     array (
@@ -438,7 +456,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'dd540bacd0aa998eb625603472d5284702d575d3',
+      'reference' => '713acb51590b5c3072dd1dfd2a9f22b32d618be8',
     ),
     'laravel/passport' => 
     array (

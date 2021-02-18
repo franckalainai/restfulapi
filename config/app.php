@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        //\Barryvdh\Cors\AppServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         Spatie\Fractal\FractalServiceProvider::class,
 

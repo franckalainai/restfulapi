@@ -19,6 +19,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Fruitcake\Cors\HandleCors::class,
+        //\Barryvdh\Cors\HandleCors::class,
     ];
 
     /**
@@ -39,6 +41,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            'cors',
             'signature:X-Application-Name',
             'throttle:10,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -62,6 +65,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'cors' => \Fruitcake\Cors\HandleCors::class,
         'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
         'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
         'throttle' => \App\Http\Middleware\CustomThrottleRequests::class,
