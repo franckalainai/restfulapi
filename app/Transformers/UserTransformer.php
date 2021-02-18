@@ -72,6 +72,7 @@ class UserTransformer extends TransformerAbstract
 
 
 
+
             'id' =>'identifier',
             'name' =>'name',
             'email'=>'email',
